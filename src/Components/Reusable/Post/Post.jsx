@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import axios from 'axios'
 
-const Post = ({postID,username,title,content,subreddit,createdAt}) => {
+const Post = ({postID,username,title,content,subreddit,createdAt, img}) => {
 
   const [post, setPost] = React.useState('')
 
@@ -34,9 +34,17 @@ const Post = ({postID,username,title,content,subreddit,createdAt}) => {
               <h1>{title}</h1>
             </Link>
           </div>
-          <div className="post__content">
-            <p>{post}</p>
-          </div>
+          {
+            img ? (
+              <div className="post__img">
+                <img src={img} alt=""/>
+              </div>
+            ): (
+              <div className="post__content">
+                <p>{post}</p>
+              </div>
+            )
+          }
         </div>
       </div>
     </article>

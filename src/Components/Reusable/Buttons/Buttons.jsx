@@ -2,14 +2,11 @@ import React from 'react'
 import {useHistory} from 'react-router-dom'
 import './Buttons.css'
 
-export const LinkButton = ({buttonColor, buttonText, buttonSize, buttonVariant, link}) => {
+export const LinkButton = ({buttonColor, buttonText, buttonSize, buttonVariant, m, link}) => {
   const history = useHistory()
-  
-  const handleRoute = link => {
-    history.push(`/${link}`)
-  }
+
   return (
-    <button onClick={() => handleRoute(link)} className={`button ${buttonColor} ${buttonSize} ${buttonVariant} `}>
+    <button onClick={() => history.push(`/${link}`) } className={`button ${buttonColor} ${m} ${buttonSize} ${buttonVariant} `}>
       {buttonText}
     </button>
   )

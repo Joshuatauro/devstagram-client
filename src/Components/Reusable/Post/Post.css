@@ -1,6 +1,5 @@
 .post {
   width: 100%;
-  max-height: 400px;
   overflow: hidden;
   color: white;
   background-color: #011627;
@@ -37,4 +36,17 @@
 .post__content p {
   color: #e0d9d9;
   white-space: pre-wrap;
+}
+
+.post__img {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.post__img img {
+  width: auto;
+  max-height: 400px;
+  object-fit: contain;
 }

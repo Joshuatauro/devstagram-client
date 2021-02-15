@@ -10,6 +10,37 @@
     width: 95%;
     margin: auto;
 
-    padding: 20px 0
+    padding: 20px 0;
+    
+    display: flex;
+    align-items: center;
+  }
+
+  &__img{
+    margin: 0 20px 0 0;
+  }
+
+  &__username{
+    color: $textColor; 
+    font-family: 'Jetbrains Mono';
+    font-size: $fontMed;
+    font-weight: 700;
+  }
+
+  &__content{
+    display: flex;
+    justify-content: space-between;
+
+    flex-grow: 1;
+  }
+
+  &__bio{
+    font-size: $fontSmall;
+    color: $fontFade
+  }
+
+  &__following{
+    display: flex;
+    align-items: center
   }
 }

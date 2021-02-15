@@ -15,7 +15,8 @@
 
 .create__form {
   background-color: #011627;
-  padding: 60px 50px;
+  padding: 20px 20px 10px;
+  width: 100%;
 }
 
 .create__input {
@@ -25,9 +26,9 @@
 .create__input input {
   background: transparent;
   border: 1.5px solid #4FD1C5;
-  width: clamp(31rem, 2.5vw, 15rem);
+  width: 100%;
   height: 40px;
-  margin: 0 0 25px 0;
+  margin: 0px 0 25px 0;
   outline: none;
   color: white;
   font-family: 'Inter';
@@ -47,8 +48,8 @@
 .create__input textarea {
   background: transparent;
   border: 1.5px solid #4FD1C5;
-  width: clamp(31rem, 2.5vw, 15rem);
-  min-height: 220px;
+  width: 100%;
+  min-height: 170px;
   margin: 25px 0;
   outline: none;
   color: white;
@@ -68,6 +69,19 @@
 
 .create__input textarea ~ label {
   top: 31px;
+}
+
+.create__input__img {
+  margin: 25px 0 25px 0;
+  border: none;
+}
+
+.create__input__img input {
+  margin: 0px 0 10px;
+  color: #011627;
+  background-color: #4FD1C5;
+  border-radius: 5px;
+  width: 100%;
 }
 
 .create__label {

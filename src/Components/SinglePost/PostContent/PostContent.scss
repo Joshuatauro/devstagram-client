@@ -67,4 +67,20 @@
     justify-content: space-between;
     align-items: flex-end;
   }
+
+  &__img{
+    width: 80%;
+    margin: auto;
+
+    display: flex;
+    justify-content: center;
+
+    & img{
+      margin: 30px 0 0;
+      object-fit: contain;
+
+      width: auto;
+      height: 500px;
+    }
+  }
 }

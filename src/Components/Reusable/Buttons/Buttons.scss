@@ -1,4 +1,4 @@
-@import '../../config';
+@import '../../../config';
 
 .button{
   height: 35px;
@@ -21,6 +21,13 @@
     }
   }
 
+  &.sm{
+    padding:  0 10px;
+
+    font-size: $fontSmall;
+    font-weight: 900;
+  }
+
 
   &.lg{
     width: 100%;
@@ -37,6 +44,11 @@
       background-color: $textColor;
       color: $backgroundColor;
     }
+  }
+
+  &.mx-0{
+    margin: 7px 0;
+    // display: none;
   }
 
   &.filled{

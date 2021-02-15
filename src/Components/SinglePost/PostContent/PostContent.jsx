@@ -22,6 +22,7 @@ const SinglePostContent = () => {
   const [createdAt, setCreatedAt] = useState('')
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
+  const [imgURL, setImgURL] = useState()
 
   const [isEditing, setIsEditing] = useState(false)
   const [isOwner, setIsOwner] = useState(false)
@@ -66,10 +67,11 @@ const SinglePostContent = () => {
     const getPostContent = async() => {
       const postContent = await axios.get(`${BASE_URL}/posts/${postID}`)
 
-      const { subreddit,username,title,content,createdat } = postContent.data.data.post
+      const { subreddit,username,title,content,createdat,img_url } = postContent.data.data.post
       setSubreddit(subreddit)
       setUserName(username)
       setTitle(title)
+      setImgURL(img_url)
 
       setContent(content.replace(/\n/g, '\n'))
       setCreatedAt(createdat)
@@ -101,11 +103,25 @@ const SinglePostContent = () => {
           {
             isEditing ? (
               <div className='single-post-content__editing'>
-                <textarea className="single-post-content__textarea" value={content} onChange={e => setContent(e.target.value)}/>
-                <div className="single-post-content__buttons">
-                  <div onClick={() => handleAction('UPDATE')}>
-                    <ActionButton buttonText='Update' buttonVariant='filled' buttonSize='md' />
+                {imgURL ? (
+                  <div className='single-post-content__img'>
+                    <img src={imgURL} alt=""/>
                   </div>
+                ) : (
+                  <textarea className="single-post-content__textarea" value={content} onChange={e => setContent(e.target.value)}/>
+                )
+              }
+                <div className="single-post-content__buttons">
+                  {
+                    imgURL ? (
+                      ''
+                    ) : (
+                      <div onClick={() => handleAction('UPDATE')}>
+                        <ActionButton buttonText='Update' buttonVariant='filled' buttonSize='md' />
+                      </div>
+                    )
+                  }
+                  
                   <div onClick={() => setIsEditing(false)}>
                     <ActionButton buttonText='Cancel' buttonVariant='filled' buttonSize='md'/>
                   </div>
@@ -117,11 +133,22 @@ const SinglePostContent = () => {
               </div>
             ) : (
               <div className="single-post-content__not-editing">
-                <p className="single-post-content__para">
-                  {content}
-                </p>
+                {
+                  imgURL ? (
+                    <div className='single-post-content__img'>
+                      <img src={imgURL} alt=""/>
+                    </div>
+                  ) : (
+                    <>
+                      <p className="single-post-content__para">
+                        {content}
+                      </p>
+                      
+                    </>
+                  )
+                }
                 {currentUser.displayName === username || currentUser.displayName === 'Joshua_45'? (
-                  <button className="single-post-content__edit" onClick={() => setIsEditing(true)}>Edit</button>
+                        <button className="single-post-content__edit" onClick={() => setIsEditing(true)}>Edit</button>
                 ) : ('')}
               </div>
             )

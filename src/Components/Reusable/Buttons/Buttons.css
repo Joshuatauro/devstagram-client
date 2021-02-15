@@ -18,6 +18,12 @@
   }
 }
 
+.button.sm {
+  padding: 0 10px;
+  font-size: 14px;
+  font-weight: 900;
+}
+
 .button.lg {
   width: 100%;
   font-size: 14px;
@@ -33,6 +39,10 @@
 .button.outlined:hover {
   background-color: #4FD1C5;
   color: #1A202C;
+}
+
+.button.mx-0 {
+  margin: 7px 0;
 }
 
 .button.filled {

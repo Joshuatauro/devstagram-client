@@ -14,7 +14,8 @@ const UserProfileContent = () => {
 
   useEffect(() => {
     const getPosts = async() => {
-      const posts = await axios.get(`${BASE_URL}/user/${username}`)
+      const posts = await axios.get(`${BASE_URL}/posts/user/${username}`)
+      console.log(posts)
       setPosts(posts.data.data.posts)
     }
 

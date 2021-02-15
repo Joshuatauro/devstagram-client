@@ -13,8 +13,8 @@ const UserProfile = () => {
   return (
     <section className="user">
       <div className="user__container">
-      <UserProfileContent />
       <UserProfileSide />
+      <UserProfileContent />
       </div>
     </section>
   )

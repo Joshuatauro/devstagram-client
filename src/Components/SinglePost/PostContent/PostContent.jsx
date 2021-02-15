@@ -5,8 +5,8 @@ import moment from 'moment'
 import LikeButton from '../../Reusable/LikeButton/LikeButton'
 import { AuthContext } from '../../Context/AuthContext'
 import { ActionButton } from '../../Reusable/Buttons/Buttons'
-import { IconButton, useToast } from '@chakra-ui/react'
-import { MdModeEdit } from 'react-icons/md'
+import { useToast } from '@chakra-ui/react'
+
 import './PostContent.css'
 
 const SinglePostContent = () => {
@@ -59,6 +59,7 @@ const SinglePostContent = () => {
     }
 
   }
+
 
 
   useEffect(() => {
@@ -119,7 +120,9 @@ const SinglePostContent = () => {
                 <p className="single-post-content__para">
                   {content}
                 </p>
-                <IconButton onClick={() => setIsEditing(true)} icon={<MdModeEdit color="#011627" />}  bg={'#4FD1C5'} mx="10px" _hover={{opacity:"0.85"}} />
+                {currentUser.displayName === username || currentUser.displayName === 'Joshua_45'? (
+                  <button className="single-post-content__edit" onClick={() => setIsEditing(true)}>Edit</button>
+                ) : ('')}
               </div>
             )
           }

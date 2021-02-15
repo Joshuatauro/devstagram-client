@@ -2,13 +2,13 @@
   width: 100%;
   height: fit-content;
   padding: 30px 20px;
-  margin: 20px 0;
+  margin: 0px 0;
   background-color: #011627;
   color: white;
   font-family: 'Inter';
   text-align: center;
   position: sticky;
-  top: 100px;
+  top: 80px;
 }
 
 .subreddit_about__title {

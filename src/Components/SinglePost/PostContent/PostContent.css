@@ -47,6 +47,13 @@
   padding: 5px;
 }
 
+.single-post-content__edit {
+  font-size: 11px;
+  font-weight: 600;
+  outline: none;
+  margin: 0 0 0 10px;
+}
+
 .single-post-content__not-editing {
   display: flex;
   justify-content: space-between;

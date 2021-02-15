@@ -9,7 +9,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-
+  
   &__column{
     flex-grow: 1;
   }
@@ -36,6 +36,7 @@
     font-weight: 600;
 
     outline: none;
+
   }
 
   &__textarea{

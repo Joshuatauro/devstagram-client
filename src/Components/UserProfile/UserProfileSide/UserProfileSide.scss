@@ -1,0 +1,15 @@
+@import '../../../config';
+
+.user-profile-aside{
+  color: white;
+  background-color: $postBackground;
+
+  margin: 0 0 20px 0;
+
+  &__container{
+    width: 95%;
+    margin: auto;
+
+    padding: 20px 0
+  }
+}

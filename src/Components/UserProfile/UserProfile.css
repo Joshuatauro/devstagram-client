@@ -8,7 +8,4 @@
 .user__container {
   width: 90%;
   margin: auto;
-  display: grid;
-  grid-template-columns: 3fr 1.3fr;
-  gap: 30px;
 }

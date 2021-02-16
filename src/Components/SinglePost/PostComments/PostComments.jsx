@@ -29,7 +29,7 @@ const PostComments = () => {
           comments.map(comment => {
 
             return(
-              <Comment key={comment.comment_id} userName={comment.username} createdAt={comment.createdAt} content={comment.content} commentID={comment.comment_id} />
+              <Comment key={comment.comment_id} profileURL={comment.profile_url} userName={comment.username} createdAt={comment.createdAt} content={comment.content} commentID={comment.comment_id} />
             )
           })
         } 

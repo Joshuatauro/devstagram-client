@@ -79,9 +79,12 @@ const UserProfileSide = () => {
             </DrawerBody>
 
             <DrawerFooter>
-              <button variant="outline" mr={3} onClick={onClose}>
+              {/* <ActioButton variant="outline" mr={3} onClick={onClose}>
                 Cancel
-              </button>
+              </ActioButton> */}
+              <div onClick={onClose}>
+                <ActionButton buttonColor='blue' buttonSize='sm'buttonText='Cancel' buttonVariant='filled' />
+              </div>
             </DrawerFooter>
           </DrawerContent>
         </DrawerOverlay>

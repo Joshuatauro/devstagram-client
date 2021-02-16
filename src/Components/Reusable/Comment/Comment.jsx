@@ -4,10 +4,10 @@ import { Link } from 'react-router-dom'
 import { CommentContext } from '../../Context/CommentContext'
 import { AuthContext } from '../../Context/AuthContext'
 import {ActionButton } from '../Buttons/Buttons'
-
+import { Avatar } from '@chakra-ui/react'
 import './Comment.css'
 
-const Comment = ({userName, createdAt, content, commentID}) => {
+const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
   const { currentUser } = useContext(AuthContext)
   const { deleteComment, updateComment } = useContext(CommentContext)
 
@@ -16,20 +16,29 @@ const Comment = ({userName, createdAt, content, commentID}) => {
   const [isEditing, setIsEditing] = useState(false)
 
   const handleUpdate = () => {
-    updateComment(commentID, paraContent)
-    
+    updateComment(commentID, paraContent,currentUser.photoURL)
+      
     setIsEditing(false)
   }
+
+  console.log(currentUser)
+
   return (
     <article className="comment" s3>
     
       <div className="comment__column">
 
-        <div className="comment__details">
-          <Link>
-            <h1 className="comment__username">{userName} posted this {moment(createdAt).fromNow()}</h1>
-          </Link>
+        <div className="comment__img">
+          <Avatar src={profileURL} name={userName} size='sm' />
         </div>
+        <div className="comment__details">
+          <div className="comment__user">
+
+            <Link>
+              <h1 className="comment__username">{userName} posted this {moment(createdAt).fromNow()}</h1>
+            </Link>
+          </div>
+        
         <div className="comment__content">
           {isEditing ? (
             <>
@@ -52,7 +61,7 @@ const Comment = ({userName, createdAt, content, commentID}) => {
               {paraContent}
             </p>
           )}
-          
+          </div>
         </div>
       </div>
       <>

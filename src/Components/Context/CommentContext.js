@@ -12,8 +12,9 @@ export const CommentContextProvider = ({children}) => {
     setComments(comments.filter(comment => commentID !== comment.comment_id))
   }
 
-  const updateComment = async(commentID, content) => {
+  const updateComment = async(commentID, content, imageURL) => {
     const formatted = {
+      imageURL,
       commentID,
       content
     }

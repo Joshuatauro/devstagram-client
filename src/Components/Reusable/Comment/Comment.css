@@ -9,10 +9,18 @@
 
 .comment__column {
   flex-grow: 1;
+  display: flex;
+}
+
+.comment__img {
+  display: flex;
+  margin: 0 10px 0 0;
 }
 
 .comment__details {
   display: flex;
+  flex-direction: column;
+  flex-grow: 1;
   font-size: 12px;
   color: #e0d9d9;
 }
@@ -23,6 +31,8 @@
 }
 
 .comment__para {
+  font-weight: 500;
+  font-size: 15px;
   white-space: pre-wrap;
 }
 
@@ -35,6 +45,7 @@
 .comment__textarea {
   width: 100%;
   min-height: 100px;
+  font-size: 15px;
   padding: 5px;
   background-color: transparent;
   border: 1.5px solid #4FD1C5;

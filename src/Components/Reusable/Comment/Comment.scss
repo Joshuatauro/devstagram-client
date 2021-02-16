@@ -12,10 +12,18 @@
   
   &__column{
     flex-grow: 1;
+    display: flex;
+  }
+
+  &__img{
+    display: flex;
+    margin: 0 10px 0 0;
   }
 
   &__details{
     display: flex;
+    flex-direction: column;
+    flex-grow: 1;
     
     font-size: 12px;
 
@@ -28,6 +36,8 @@
   }
 
   &__para{
+    font-weight: 500;
+    font-size: 15px;
     white-space: pre-wrap;
   }
 
@@ -42,6 +52,8 @@
   &__textarea{
     width: 100%;
     min-height: 100px;
+
+    font-size: 15px;
 
     padding: 5px;
 

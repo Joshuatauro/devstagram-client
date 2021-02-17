@@ -5,7 +5,7 @@ import moment from 'moment'
 import LikeButton from '../../Reusable/LikeButton/LikeButton'
 import { AuthContext } from '../../Context/AuthContext'
 import { ActionButton } from '../../Reusable/Buttons/Buttons'
-import { useToast } from '@chakra-ui/react'
+import { Avatar, useToast } from '@chakra-ui/react'
 
 import './PostContent.css'
 
@@ -23,6 +23,7 @@ const SinglePostContent = () => {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [imgURL, setImgURL] = useState()
+  const [profileURL, setProfileURL] = useState()
 
   const [isEditing, setIsEditing] = useState(false)
   const [isOwner, setIsOwner] = useState(false)
@@ -67,13 +68,13 @@ const SinglePostContent = () => {
     const getPostContent = async() => {
       const postContent = await axios.get(`${BASE_URL}/posts/${postID}`)
 
-      const { subreddit,username,title,content,createdat,img_url } = postContent.data.data.post
+      const { subreddit,username,title,content,createdat,img_url,profile_url } = postContent.data.data.post
       setSubreddit(subreddit)
       setUserName(username)
       setTitle(title)
       setImgURL(img_url)
-
-      setContent(content.replace(/\n/g, '\n'))
+      setProfileURL(profile_url)
+      setContent(content)
       setCreatedAt(createdat)
     }
     getPostContent()
@@ -84,17 +85,20 @@ const SinglePostContent = () => {
   return (
     <section className="single-post-content">
       <div className="single-post-content__container">
-        <div className="single-post-content__post-details">
-          <Link to={`/subreddit/${subreddit}`}>
-            <h2 className="single-post-content__subreddit">
-              TP/{subreddit} {isOwner}
-            </h2>
-          </Link>
-          <Link to={`/user/${username}`}>
-            <h3 className="single-post-content__username">
-              By u/{username} {moment(createdAt).fromNow()}
-            </h3>
-          </Link>
+        <div className="single-post-content__row">
+          <Avatar src={profileURL} name={username} size='md' />
+          <div className="single-post-content__post-details">
+            <Link to={`/subreddit/${subreddit}`}>
+              <h2 className="single-post-content__subreddit">
+                TP/{subreddit} {isOwner}
+              </h2>
+            </Link>
+            <Link to={`/user/${username}`}>
+              <h3 className="single-post-content__username">
+                By u/{username} {moment(createdAt).fromNow()}
+              </h3>
+            </Link>
+          </div>
         </div>
         <div className="single-post-content__post-content">
           <h1 className="single-post-content__title">

@@ -3,8 +3,12 @@
   margin: auto;
 }
 
+.single-post-content__row {
+  display: flex;
+}
+
 .single-post-content__post-details {
-  margin: 0 0 20px;
+  margin: 0 10px 20px;
 }
 
 .single-post-content__subreddit {

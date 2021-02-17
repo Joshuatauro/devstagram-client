@@ -20,6 +20,17 @@
   color: #4FD1C5;
 }
 
+.post__row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.post__column {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 10px;
+}
+
 .post__user h3 {
   font-family: "Jetbrains Mono";
   font-size: 12px;

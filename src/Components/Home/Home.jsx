@@ -42,7 +42,7 @@ const Home = () => {
             <>
               {posts.map(post => {
                 return(                  
-                  <Post postID={post.postid} img={post.img_url} commentCount={post.comments_count} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
+                  <Post key={post.postid} postID={post.postid} img={post.img_url} profileImg={post.profile_url} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
                 )
               })}
             </>

@@ -6,8 +6,13 @@
     width: 95%;
     margin: auto
   }
+
+  &__row{
+    display: flex;
+  }
+
   &__post-details{
-    margin: 0 0 20px;
+    margin: 0 10px 20px;
   }
 
   &__subreddit{

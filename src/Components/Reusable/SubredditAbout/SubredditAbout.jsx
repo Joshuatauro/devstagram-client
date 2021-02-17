@@ -37,6 +37,7 @@ const SubredditAbout = ({numOfPosts}) => {
   useEffect(() => {
     const fetchSubredditDetails = async() => {
       const fetchDetails = await axios.get(`${BASE_URL}/subreddits/${subreddit}`)
+      console.log(fetchDetails)
       setAbout(fetchDetails.data.data.about)
       setIsFollowing(fetchDetails.data.data.followed_by.includes(currentUser.displayName))
     }

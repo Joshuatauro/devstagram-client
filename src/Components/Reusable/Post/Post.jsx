@@ -4,8 +4,9 @@ import './Post.css'
 import moment from 'moment'
 
 import axios from 'axios'
+import { Avatar } from '@chakra-ui/react'
 
-const Post = ({postID,username,title,content,subreddit,createdAt, img, commentCount, likeCount}) => {
+const Post = ({postID,username,title,content,subreddit,createdAt, img, profileImg}) => {
 
   const [post, setPost] = React.useState('')
 
@@ -16,19 +17,24 @@ const Post = ({postID,username,title,content,subreddit,createdAt, img, commentCo
     <article className="post">
       <div className="post__container">
         <div className="post__row">
-          <div className="post__subreddit">
-            <Link to={`/subreddit/${subreddit}`}>
-              <h1>TD/{subreddit}</h1>
-            </Link>
-          </div>
-          <div className="post__user">
-            <Link to={`/user/${username}`}>
-              <h3>u/{username} posted this {moment(createdAt).fromNow()}</h3>
-            </Link>
+          <Link to={`/user/${username}`}>
+            <Avatar src={profileImg} name={username} size='md' />
+          </Link>
+          <div className="post__column">
+            <div className="post__subreddit">
+              <Link to={`/subreddit/${subreddit}`}>
+                <h1>TD/{subreddit}</h1>
+              </Link>
+            </div>
+            <div className="post__user">
+              <Link to={`/user/${username}`}>
+                <h3>u/{username} posted this {moment(createdAt).fromNow()}</h3>
+              </Link>
+            </div>
           </div>
         </div>
 
-        <div className="post__row">
+        <>
           <div className="post__title">
             <Link to={`/post/${postID}`}>
               <h1>{title}</h1>
@@ -45,9 +51,9 @@ const Post = ({postID,username,title,content,subreddit,createdAt, img, commentCo
               </div>
             )
           }
-        </div>
+        </>
         <Link className="post__footer" to={`/post/${postID}`}>
-          <h1>Comments({commentCount})</h1>
+          <h1>Comments</h1>
         </Link>
       </div>
     </article>

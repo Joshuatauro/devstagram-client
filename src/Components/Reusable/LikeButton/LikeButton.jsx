@@ -14,14 +14,12 @@ const LikeButton = () => {
 
 
   const likePost = async() => {
-    console.log(currentUser)
     if(await currentUser){
 
       const formattedDetails = {
         userName: await currentUser.displayName,
         postID
       }
-      console.log(formattedDetails)
   
       axios.post(`${BASE_URL}/likes/add`,formattedDetails)
       setNumOfLikes(numOfLikes+1)

@@ -147,7 +147,7 @@ const SinglePostContent = () => {
                     </>
                   )
                 }
-                {currentUser.displayName === username || currentUser.displayName === 'Joshua_45'? (
+                {currentUser?.displayName === username || currentUser?.displayName === 'Joshua_45'? (
                         <button className="single-post-content__edit" onClick={() => setIsEditing(true)}>Edit</button>
                 ) : ('')}
               </div>

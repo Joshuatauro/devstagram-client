@@ -50,3 +50,16 @@
   max-height: 400px;
   object-fit: contain;
 }
+
+.post__footer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.post__footer h1 {
+  color: #4FD1C5;
+  font-family: 'Jetbrains Mono';
+  font-size: 14px;
+  font-weight: 600;
+}

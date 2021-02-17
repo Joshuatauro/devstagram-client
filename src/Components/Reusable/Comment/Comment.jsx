@@ -21,8 +21,6 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
     setIsEditing(false)
   }
 
-  console.log(currentUser)
-
   return (
     <article className="comment" s3>
     
@@ -34,7 +32,7 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
         <div className="comment__details">
           <div className="comment__user">
 
-            <Link>
+            <Link to={`/user/${userName}`}>
               <h1 className="comment__username">{userName} posted this {moment(createdAt).fromNow()}</h1>
             </Link>
           </div>

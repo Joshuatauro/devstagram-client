@@ -106,7 +106,7 @@ const CreatePost = () => {
         
           <Tabs variant='enclosed'size='lg'>
             <TabList>
-              <Tab color='#4FD1C5'_active='#4FD1C5'>
+              <Tab color='#4FD1C5'>
                 <AiFillFileText />
               </Tab>
               <Tab color='#4FD1C5'>

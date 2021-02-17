@@ -27,7 +27,6 @@ const PostComments = () => {
         <h1 className="post-comments__title">Comments</h1>
         {
           comments.map(comment => {
-
             return(
               <Comment key={comment.comment_id} profileURL={comment.profile_url} userName={comment.username} createdAt={comment.createdAt} content={comment.content} commentID={comment.comment_id} />
             )

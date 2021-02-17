@@ -24,6 +24,7 @@ const UserProfileSide = () => {
 
   const [bio, setBio] = useState()
   const [subreddits, setSubreddits] = useState([])
+  const [imgURL, setImgURL] = useState()
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -34,6 +35,7 @@ const UserProfileSide = () => {
       const userData = await axios.get(`${BASE_URL}/user/details/${username}`)
       setSubreddits(userData.data.data.userDetails.followed_subreddits)
       setBio(userData.data.data.userDetails.bio)
+      setImgURL(userData.data.data.userDetails.profile_url)
     }
 
     fetchUser()
@@ -42,7 +44,7 @@ const UserProfileSide = () => {
     <div className="user-profile-aside">
       <div className="user-profile-aside__container">
         <div className="user-profile-aside__img">
-          <Avatar name={username} src='https://bit.ly/sage-adebayo' size='lg'/>
+          <Avatar name={username} src={imgURL} size='lg'/>
         </div>
         <div className="user-profile-aside__content">
           <div className="user-profile-aside__col">
@@ -54,7 +56,7 @@ const UserProfileSide = () => {
             </p>
           </div>
           <div className="user-profile-aside__following" onClick={ onOpen }>
-            <ActionButton  buttonText={`Following:  ${subreddits.length}`} buttonColor='blue' buttonSize='sm' buttonVariant='filled' />
+            <ActionButton  buttonText={`Following:  ${subreddits?.length ? subreddits.length : 0}`} buttonColor='blue' buttonSize='sm' buttonVariant='filled' />
           </div>
         </div>
         <Drawer
@@ -69,7 +71,7 @@ const UserProfileSide = () => {
             <DrawerHeader color='#4FD1C5' fontFamily='jetbrains mono'>{username} follows</DrawerHeader>
 
             <DrawerBody>
-              {subreddits.map(subreddit => {
+              {subreddits?.map(subreddit => {
                 return(
                   <Link to={`/subreddit/${subreddit}`}>
                     <LinkButton buttonVariant='filled' buttonSize='lg' buttonText={subreddit} m='mx-0' />

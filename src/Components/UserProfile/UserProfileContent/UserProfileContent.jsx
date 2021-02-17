@@ -30,7 +30,7 @@ const UserProfileContent = () => {
           posts.map(post => {
 
             return(
-              <Post postID={post.postid} content={post.content} username={post.username} title={post.title} createdAt={post.createdat} subreddit={post.subreddit} />
+              <Post postID={post.postid} img={post.img_url} content={post.content} username={post.username} title={post.title} createdAt={post.createdat} subreddit={post.subreddit} />
             )
           })
         }

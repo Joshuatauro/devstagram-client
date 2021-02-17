@@ -5,7 +5,7 @@ import moment from 'moment'
 
 import axios from 'axios'
 
-const Post = ({postID,username,title,content,subreddit,createdAt, img}) => {
+const Post = ({postID,username,title,content,subreddit,createdAt, img, commentCount, likeCount}) => {
 
   const [post, setPost] = React.useState('')
 
@@ -46,6 +46,9 @@ const Post = ({postID,username,title,content,subreddit,createdAt, img}) => {
             )
           }
         </div>
+        <Link className="post__footer" to={`/post/${postID}`}>
+          <h1>Comments({commentCount})</h1>
+        </Link>
       </div>
     </article>
   )

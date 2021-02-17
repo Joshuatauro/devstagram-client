@@ -66,4 +66,17 @@
       object-fit: contain;
     }
   }
+
+  &__footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+    & h1{
+      color: $textColor;
+      font-family: 'Jetbrains Mono';
+      font-size: 14px;
+      font-weight: 600
+    }
+  }
 }

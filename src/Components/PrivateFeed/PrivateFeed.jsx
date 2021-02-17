@@ -39,6 +39,7 @@ const PrivateFeed = () => {
           ) : (
             <>
               {posts.map(post => {
+                console.log(post)
                 return(
                   
                   <Post postID={post.postid} profileImg={post.profile_url} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>

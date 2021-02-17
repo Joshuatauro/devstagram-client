@@ -62,10 +62,11 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
           </div>
         </div>
       </div>
-      <>
+      <div className='comment__edit__container'>
         {
           currentUser?.displayName === userName ? (
             isEditing ? "" : (
+              
               <button className="comment__edit" onClick={() => setIsEditing(true)}>
                 Edit
               </button>
@@ -74,7 +75,7 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
             ""
           )
         }
-      </>
+      </div>
     </article>
   )
 }

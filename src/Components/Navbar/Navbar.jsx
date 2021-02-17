@@ -11,14 +11,10 @@ import { GrLogout } from 'react-icons/gr'
 import './Navbar.css'
 
 const Navbar = () => {
-  const toast = useToast()
   const {currentUser, logout} = useContext(AuthContext)
 
   const [isMobile, setIsMobile] = useState(true)
 
-  const handleLogout = () => {
-    logout()
-  }
   useEffect(() => {
     const handleResize = () => {
       window.innerWidth < 700 ? setIsMobile(true) : setIsMobile(false)
@@ -55,7 +51,7 @@ const Navbar = () => {
               <Link to="/feed">
                 <IconButton icon={<MdHome />}  bg={'#4FD1C5'} mx='10px' _hover={{opacity:"0.85"}} />
               </Link>
-              <Link onClick={handleLogout}>
+              <Link to='/settings' >
                 <IconButton icon={<MdSettings />}  bg={'#4FD1C5'} _hover={{opacity:"0.85"}} />
               </Link>
               

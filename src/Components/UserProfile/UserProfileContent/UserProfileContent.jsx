@@ -15,7 +15,6 @@ const UserProfileContent = () => {
   useEffect(() => {
     const getPosts = async() => {
       const posts = await axios.get(`${BASE_URL}/posts/user/${username}`)
-      console.log(posts)
       setPosts(posts.data.data.posts)
     }
 
@@ -28,7 +27,7 @@ const UserProfileContent = () => {
       <div className="user-profile__container">
         {
           posts.map(post => {
-            console.log(post)
+
             return(
               <Post postID={post.postid} profileImg={post.profile_url} img={post.img_url} content={post.content} username={post.username} title={post.title} createdAt={post.createdat} subreddit={post.subreddit} />
             )

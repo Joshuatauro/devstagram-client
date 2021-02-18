@@ -54,7 +54,9 @@ const Navbar = () => {
               <Link to='/settings' >
                 <IconButton icon={<MdSettings />}  bg={'#4FD1C5'} _hover={{opacity:"0.85"}} />
               </Link>
-              
+              <span onClick={logout}>
+                <IconButton icon={<GrLogout />}  bg={'#4FD1C5'} mx='10px' _hover={{opacity:"0.85"}} />
+              </span>
             </div>
 
           ) : (

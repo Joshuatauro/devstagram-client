@@ -16,8 +16,7 @@ const Settings = () => {
   return (
     <section className='settings'>
       <div className="settings__container">
-        <Tabs>
-        <Tabs variant='enclosed'size='lg'>
+        <Tabs isFitted size='lg'>
             <TabList>
               <Tab color='#4FD1C5'>
                 <MdAccountCircle />
@@ -37,7 +36,6 @@ const Settings = () => {
               </TabPanel>
             </TabPanels>
           </Tabs>
-        </Tabs>
       </div>
     </section>
   )

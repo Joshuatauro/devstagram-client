@@ -1,0 +1,12 @@
+.settings {
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 30px 00 00 0;
+  background-color: #1A202C;
+}
+
+.settings__container {
+  width: 85%;
+  margin: auto;
+  background-color: #011627;
+}

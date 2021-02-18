@@ -12,6 +12,7 @@ import Login from './Components/Login/Login';
 import SingleSubreddit from './Components/SingleSubreddit/SingleSubreddit';
 import PrivateFeed from './Components/PrivateFeed/PrivateFeed';
 import UserProfile from './Components/UserProfile/UserProfile';
+import Settings from './Components/Settings/Settings';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
             </Route>
             <Route path='/feed'>
               <PrivateFeed />
+            </Route>
+            <Route path='/settings'>
+              <Settings />
             </Route>
             <Route path="/subreddit/:subreddit">
               <SingleSubreddit />

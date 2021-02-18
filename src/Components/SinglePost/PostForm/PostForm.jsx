@@ -23,10 +23,22 @@ const PostForm = () => {
       const formattedDetails = {
         userName: currentUser.displayName,
         content: comment,
-        postID
+        postID,
+        profileURL: currentUser.photoURL
       }
       const commentDetails = await axios.post('http://localhost:5000/comments/add', formattedDetails)
-      addComment(commentDetails.data.data.commentDetails)
+      const { parent_postid, comment_id, content, createdat, username } = commentDetails.data.data.commentDetails
+      
+      const formattedComment = {
+        parent_postid,
+        comment_id,
+        content,
+        createdat,
+        username,
+        profile_url: await currentUser.photoURL
+      }
+      
+      addComment(formattedComment)
       setComment('')
     } else {
       toast({

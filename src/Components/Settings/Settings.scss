@@ -1,0 +1,17 @@
+@import '../../config';
+
+.settings{
+  width: 100%;
+  min-height: calc(100vh - 70px);
+
+  padding: 30px 00 00 0;
+  background-color: $backgroundColor;
+
+  &__container{
+    width: 85%;
+    
+    margin: auto;
+
+    background-color: $postBackground
+  }
+}

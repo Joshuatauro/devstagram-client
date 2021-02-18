@@ -22,7 +22,7 @@ export const CommentContextProvider = ({children}) => {
     setComments([...comments, comments.map(comment => comment.comment_id === commentID ? comment.content = content : comment)])
   } 
 
-  const addComment = comment => {
+  const addComment = (comment) => {
     setComments([comment,...comments])
   }
 

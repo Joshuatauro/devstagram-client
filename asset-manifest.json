@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/client/static/css/main.e68e1108.chunk.css",
-    "main.js": "/client/static/js/main.9d857bd1.chunk.js",
-    "main.js.map": "/client/static/js/main.9d857bd1.chunk.js.map",
-    "runtime-main.js": "/client/static/js/runtime-main.4153a12a.js",
-    "runtime-main.js.map": "/client/static/js/runtime-main.4153a12a.js.map",
-    "static/js/2.6966fc29.chunk.js": "/client/static/js/2.6966fc29.chunk.js",
-    "static/js/2.6966fc29.chunk.js.map": "/client/static/js/2.6966fc29.chunk.js.map",
-    "index.html": "/client/index.html",
-    "static/css/main.e68e1108.chunk.css.map": "/client/static/css/main.e68e1108.chunk.css.map",
-    "static/js/2.6966fc29.chunk.js.LICENSE.txt": "/client/static/js/2.6966fc29.chunk.js.LICENSE.txt"
+    "main.css": "/devstagram-client/static/css/main.e68e1108.chunk.css",
+    "main.js": "/devstagram-client/static/js/main.9d857bd1.chunk.js",
+    "main.js.map": "/devstagram-client/static/js/main.9d857bd1.chunk.js.map",
+    "runtime-main.js": "/devstagram-client/static/js/runtime-main.ab790010.js",
+    "runtime-main.js.map": "/devstagram-client/static/js/runtime-main.ab790010.js.map",
+    "static/js/2.8c989fcf.chunk.js": "/devstagram-client/static/js/2.8c989fcf.chunk.js",
+    "static/js/2.8c989fcf.chunk.js.map": "/devstagram-client/static/js/2.8c989fcf.chunk.js.map",
+    "index.html": "/devstagram-client/index.html",
+    "static/css/main.e68e1108.chunk.css.map": "/devstagram-client/static/css/main.e68e1108.chunk.css.map",
+    "static/js/2.8c989fcf.chunk.js.LICENSE.txt": "/devstagram-client/static/js/2.8c989fcf.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.4153a12a.js",
-    "static/js/2.6966fc29.chunk.js",
+    "static/js/runtime-main.ab790010.js",
+    "static/js/2.8c989fcf.chunk.js",
     "static/css/main.e68e1108.chunk.css",
     "static/js/main.9d857bd1.chunk.js"
   ]

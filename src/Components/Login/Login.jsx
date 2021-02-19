@@ -1,6 +1,6 @@
 import { useToast } from '@chakra-ui/react'
 import React, { useState, useContext } from 'react'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { AuthContext } from '../Context/AuthContext'
 import { ActionButton } from '../Reusable/Buttons/Buttons'
 
@@ -35,6 +35,10 @@ const Login = () => {
 
   return (
     <section className="signup">
+      {currentUser ? (
+        <Redirect to='/' />
+      ) : (
+
       <div className="signup__container">
         <form onSubmit={handleSubmit} className="signup__form">
 
@@ -49,6 +53,7 @@ const Login = () => {
           <ActionButton buttonText="Submit" buttonSize="lg" buttonVariant="filled" buttonColor="blue" onSubmit={handleSubmit}/>
         </form>
       </div>
+      )}
     </section>
   )
 }

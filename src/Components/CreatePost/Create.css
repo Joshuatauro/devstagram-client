@@ -8,15 +8,25 @@
   width: 80%;
   min-height: calc(100vh - 70px);
   margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 40px 0 0 0;
+}
+
+@media (max-width: 800px) {
+  .create__container {
+    width: 95%;
+  }
 }
 
 .create__form {
   background-color: #011627;
   padding: 20px 20px 10px;
   width: 100%;
+}
+
+@media (max-width: 800px) {
+  .create__form {
+    padding: 20px 0px 10px;
+  }
 }
 
 .create__input {

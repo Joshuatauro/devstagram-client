@@ -5,8 +5,10 @@ import {ActionButton} from '../Buttons/Buttons'
 import { AuthContext } from '../../Context/AuthContext'
 
 import './SubredditAbout.css'
+import { useToast } from '@chakra-ui/react'
 
 const SubredditAbout = ({numOfPosts}) => {
+  const toast = useToast()
   const {currentUser, BASE_URL } =  useContext(AuthContext)
   const { subreddit } = useParams()
 
@@ -15,12 +17,25 @@ const SubredditAbout = ({numOfPosts}) => {
   const [about, setAbout] = useState('')
 
   const followSubreddit = async() => {
-    const formattedDetails = {
-      username: await currentUser.displayName,
-      subreddit
+    if(currentUser) {
+
+      const formattedDetails = {
+        username: await currentUser.displayName,
+        subreddit
+      }
+      const follow = await axios.post(`${BASE_URL}/user/follow/subreddit`, formattedDetails)
+      setIsFollowing(true)
+    } else {
+      toast(
+        {
+          title: 'Action failed',
+          description: "Create an account to follow a subreddit",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        }
+      )
     }
-    const follow = await axios.post(`${BASE_URL}/user/follow/subreddit`, formattedDetails)
-    setIsFollowing(true)
   }
 
   const unfollowSubreddit = async() => {
@@ -37,9 +52,9 @@ const SubredditAbout = ({numOfPosts}) => {
   useEffect(() => {
     const fetchSubredditDetails = async() => {
       const fetchDetails = await axios.get(`${BASE_URL}/subreddits/${subreddit}`)
-      console.log(fetchDetails)
       setAbout(fetchDetails.data.data.about)
-      setIsFollowing(fetchDetails.data.data.followed_by.includes(currentUser.displayName))
+      {currentUser ? setIsFollowing(fetchDetails.data.data.followed_by.includes(currentUser.displayName)) : setIsFollowing(false)}
+      
     }
 
     fetchSubredditDetails()

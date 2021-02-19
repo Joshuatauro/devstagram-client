@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Progress, Select, Tab, TabList, TabPanel, TabPanels, Tabs, useToast } from '@chakra-ui/react'
 import { AuthContext } from '../Context/AuthContext'
 import { ActionButton } from '../Reusable/Buttons/Buttons'
-import { useHistory } from 'react-router-dom'
+import { Redirect, useHistory } from 'react-router-dom'
 import { AiFillFileText } from 'react-icons/ai'
 import { BsImageFill } from 'react-icons/bs'
 import './Create.css'
@@ -99,47 +99,25 @@ const CreatePost = () => {
   }, [])
   return (
     <section className="create">
-      <div className="create__container">
+      {currentUser ? (
+        <div className="create__container">
 
-        <div className="create__form">
+          <div className="create__form">
 
-        
-          <Tabs variant='enclosed'size='lg'>
-            <TabList>
-              <Tab color='#4FD1C5'>
-                <AiFillFileText />
-              </Tab>
-              <Tab color='#4FD1C5'>
-                <BsImageFill/>
-              </Tab>
-            </TabList>
-            <TabPanels>
-              <TabPanel>
-                <form onSubmit={handleSubmit}  className="create__form">
-                  <div className="create__input">
-                    <input type="text" required value={title} onChange={e => setTitle(e.target.value)}/>
-                    <label className="create__label">Title</label>
-                  </div>
-                  <Select value={selectedSubreddit} onChange={e => setSelectedSubreddit(e.target.value)} variant="filled" bg='#4FD1C5' color="black" _hover={{bg: "#4FD1C5"}} _focus={{bg: "#4FD1C5"}}>
-                    {
-                      subreddits.map((subreddit) => {
-                        return(
-                          <option value={subreddit}>{subreddit}</option>
-                        )
-                      })
-                    }
-                  </Select>
-                  <div className="create__input">
-                    <textarea type="text" required value={content} onChange={e => setContent(e.target.value)}/>
-                    <label className="create__label">Text</label>
-                  </div>
-                  <ActionButton type='submit' buttonText="Submit" buttonVariant="filled" buttonColor="blue" buttonSize="md" />
-                  </form>
-              </TabPanel>
-              
-              <TabPanel>
-                <form onSubmit={handleSubmit}  className="create__form">
-                  <div className="create__input">
+
+            <Tabs variant='enclosed'size='lg'>
+              <TabList>
+                <Tab color='#4FD1C5'>
+                  <AiFillFileText />
+                </Tab>
+                <Tab color='#4FD1C5'>
+                  <BsImageFill/>
+                </Tab>
+              </TabList>
+              <TabPanels>
+                <TabPanel>
+                  <form onSubmit={handleSubmit}  className="create__form">
+                    <div className="create__input">
                       <input type="text" required value={title} onChange={e => setTitle(e.target.value)}/>
                       <label className="create__label">Title</label>
                     </div>
@@ -152,21 +130,48 @@ const CreatePost = () => {
                         })
                       }
                     </Select>
-
-                    <div className="create__input__img">    
-                      <input name='myname' required type="file" accept='image/*' onChange={handleImgSelect} />
-                      <Progress value={imgProgress} borderRadius='5px' />
+                    <div className="create__input">
+                      <textarea type="text" required value={content} onChange={e => setContent(e.target.value)}/>
+                      <label className="create__label">Text</label>
                     </div>
-                  <ActionButton name='myname' type='submit' buttonText="Submit" buttonVariant="filled" buttonColor="blue" buttonSize="md" />
+                    <ActionButton type='submit' buttonText="Submit" buttonVariant="filled" buttonColor="blue" buttonSize="md" />
+                    </form>
+                </TabPanel>
+                
+                <TabPanel>
+                  <form onSubmit={handleSubmit}  className="create__form">
+                    <div className="create__input">
+                        <input type="text" required value={title} onChange={e => setTitle(e.target.value)}/>
+                        <label className="create__label">Title</label>
+                      </div>
+                      <Select value={selectedSubreddit} onChange={e => setSelectedSubreddit(e.target.value)} variant="filled" bg='#4FD1C5' color="black" _hover={{bg: "#4FD1C5"}} _focus={{bg: "#4FD1C5"}}>
+                        {
+                          subreddits.map((subreddit) => {
+                            return(
+                              <option value={subreddit}>{subreddit}</option>
+                            )
+                          })
+                        }
+                      </Select>
 
-                </form>
-              
-              </TabPanel>
-            </TabPanels>
-          </Tabs>
+                      <div className="create__input__img">    
+                        <input name='myname' required type="file" accept='image/*' onChange={handleImgSelect} />
+                        <Progress value={imgProgress} borderRadius='5px' />
+                      </div>
+                    <ActionButton name='myname' type='submit' buttonText="Submit" buttonVariant="filled" buttonColor="blue" buttonSize="md" />
+
+                  </form>
+                
+                </TabPanel>
+              </TabPanels>
+            </Tabs>
+            </div>
+
           </div>
-
-      </div>
+      ) : (
+        <Redirect to='/signup' />
+      )}
+      
     </section>
   )
 }

@@ -33,7 +33,7 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
           <div className="comment__user">
 
             <Link to={`/user/${userName}`}>
-              <h1 className="comment__username">{userName} posted this {moment(createdAt).fromNow()}</h1>
+              <h1 className="comment__username">By {userName} {moment(createdAt).fromNow()}</h1>
             </Link>
           </div>
         
@@ -64,7 +64,7 @@ const Comment = ({userName, createdAt, content, commentID, profileURL}) => {
       </div>
       <div className='comment__edit__container'>
         {
-          currentUser?.displayName === userName ? (
+          currentUser?.displayName === userName  || currentUser.displayName === 'joshua_45' ? (
             isEditing ? "" : (
               
               <button className="comment__edit" onClick={() => setIsEditing(true)}>

@@ -24,11 +24,20 @@
 
   &__flex{
     display: grid;
-    grid-template-columns: 3fr 1.3fr
+    grid-template-columns: 3fr 1.3fr;
+
+    @media (max-width: 800px){
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 
   &__column{
     flex-grow: 1;
     margin: 0 30px 0 0;
+
+    @media (max-width: 800px){
+      margin: 0;
+    }
   }
 }

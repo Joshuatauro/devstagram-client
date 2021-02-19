@@ -25,7 +25,20 @@
   grid-template-columns: 3fr 1.3fr;
 }
 
+@media (max-width: 800px) {
+  .home__flex {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+}
+
 .home__column {
   flex-grow: 1;
   margin: 0 30px 0 0;
+}
+
+@media (max-width: 800px) {
+  .home__column {
+    margin: 0;
+  }
 }

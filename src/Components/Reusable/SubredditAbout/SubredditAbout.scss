@@ -16,6 +16,11 @@
 
   position: sticky;
   top: 80px;
+
+  @media (max-width: 800px) {
+    position: unset;
+    margin: 0 0 20px 0;
+  }
   
   &__title{
     color: $textColor;

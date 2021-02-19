@@ -11,6 +11,13 @@
   top: 80px;
 }
 
+@media (max-width: 800px) {
+  .subreddit_about {
+    position: unset;
+    margin: 0 0 20px 0;
+  }
+}
+
 .subreddit_about__title {
   color: #4FD1C5;
   font-family: 'Jetbrains Mono';

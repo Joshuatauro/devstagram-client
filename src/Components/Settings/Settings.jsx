@@ -6,6 +6,7 @@ import { MdAccountCircle } from 'react-icons/md'
 import { BiUserCircle } from 'react-icons/bi'
 import './Settings.css'
 import UserProfileSettings from './UserProfileSettings/UserProfileSettings'
+import { Redirect } from 'react-router-dom'
 
 
 const Settings = () => {
@@ -15,6 +16,8 @@ const Settings = () => {
 
   return (
     <section className='settings'>
+      {currentUser ? (
+
       <div className="settings__container">
         <Tabs isFitted size='lg'>
             <TabList>
@@ -37,6 +40,9 @@ const Settings = () => {
             </TabPanels>
           </Tabs>
       </div>
+      ) : (
+        <Redirect to='/' />
+      )}
     </section>
   )
 }

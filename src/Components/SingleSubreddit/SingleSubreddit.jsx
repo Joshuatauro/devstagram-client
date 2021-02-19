@@ -49,7 +49,7 @@ const SingleSubreddit = () => {
                 {posts.map(post => {
                   return(
                     
-                    <Post postID={post.postid} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
+                    <Post postID={post.postid} img={post.img_url} profileImg={post.profile_url} username={post.username} title={post.title} content={post.content} subreddit={post.subreddit} createdAt={post.createdat}/>
                   )
                 })}
               </div>

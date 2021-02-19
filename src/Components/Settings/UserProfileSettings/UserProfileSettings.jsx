@@ -54,9 +54,7 @@ const UserProfileSettings = () => {
 
   const handleSubmitBio = async(e) => {
     e.preventDefault()
-    console.log(bio)
     const changeBio = await axios.post(`${BASE_URL}/user/update/bio`, {bio, uid: await currentUser.uid})
-
     if(changeBio.data.status === 'Success'){
       toast(
         {
@@ -83,8 +81,21 @@ const UserProfileSettings = () => {
 
   const handleSubmitPortfolio = async(e) => {
     e.preventDefault()
-    
     const changePortfolio = await axios.post(`${BASE_URL}/user/update/portfolio`, {portfolio,  uid: await currentUser.uid})
+    console.log(changePortfolio.data.status)
+  
+    if(changePortfolio.data.status === 'Success'){
+      toast(
+        {
+          title: "Action ",
+          description: "Portfolio link could not be added",
+          status: "error",
+          duration: 3000,
+          isClosable: true,
+        }
+      )
+    }
+  
   }
 
   return (
@@ -117,7 +128,7 @@ const UserProfileSettings = () => {
         </form>
 
         <form className="user-profile-settings__bio" onSubmit={handleSubmitPortfolio}>
-          <input maxLength='200' required value={portfolio} onChange={e => setBio(e.target.value)}/>
+          <input maxLength='200' required value={portfolio} onChange={e => setPortfolio(e.target.value)}/>
           <label>Portfolio</label>
         <ActionButton  buttonColor='blue' buttonSize='lg' buttonText='Update' buttonVariant='filled ' />
         </form>

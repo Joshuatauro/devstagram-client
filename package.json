@@ -1,6 +1,6 @@
 {
   "homepage": "http://Joshuatauro.github.io/devstagram-client",
-  "name": "client",
+  "name": "devstagram-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

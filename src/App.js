@@ -46,7 +46,7 @@ function App() {
             <Route path="/user/:username">
               <UserProfile />
             </Route>
-            <Route exact path="/">
+            <Route exact path="/devstagram-client">
               <Home />
             </Route>
 

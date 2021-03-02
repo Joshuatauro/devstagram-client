@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="navbar__container">
         
         <div className="navbar__header">
-          <Link to="/">
+          <Link to="/devstagram-client">
             {isMobile ? (
               <h1>TD</h1>
               ) : (
